@@ -1,0 +1,41 @@
+<div>
+  <div>
+    <label>Input Temperature</label>
+    <input type="number" (change)="setInputTemperature($event)" />
+  </div>
+  <br />
+  <button (click)="setTemperature()">Add Fahrenheit Temperature</button>
+  <br />
+  <div>
+    <br />
+    <label>What it feels like</label>
+    <input type="number" (change)="setInputFeelsLike($event)" />
+  </div>
+  <br />
+  <button (click)="setFeelsLike()">Add What it Feels Like</button>
+</div>
+<br />
+<div>
+  <div>
+    <br />
+    <span *ngIf="!displayText">No Values Listed</span>
+    <span *ngIf="displayText">{{ displayText }}</span>
+  </div>
+</div>
+<br />
+<p>
+  Often we arent listening to just one observable. there can be other values
+  we're listening to. in relation to a weather app, me may be listening to
+  humidity, or what it feels like as well as the temperatue<br />
+  If we want to present the weather and what it feels like, we may have to
+  listen to multiple data streams<br />
+  <strong>combineLastest</strong> - an RxJS operator that listens to multiple
+  observables to output a single output. This works by listening ot multiple
+  data streams and combining them into a single output<br />
+  If the weather or what it feels like event fires, the observable will listen
+  to either one and will emit an event for all subscribers<br />
+  Using this operator an event will only be fired when all data streams have
+  emitted at least one event <br />
+  Afterwards, a new event will be outputted to the subscribers if any data
+  streams fire a new event
+</p>

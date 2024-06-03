@@ -1,0 +1,43 @@
+<h1>
+  BehaviourSubject (Requires an initial value and emits the current value to new
+  subscribers)
+</h1>
+
+<a href="https://www.learnrxjs.io/learn-rxjs/subjects/behaviorsubject"
+  >BehaviourSubject RxJS Docs</a
+>
+<h3>Current temperature: {{ temperatureSubject$.value }} F</h3>
+<img [src]="imageSrc" class="weather-icon" />
+<br />
+<label>Input: </label>
+<input type="number" (change)="setInputTemperature($event)" />
+<button (click)="setTemperature()">Set temperature</button>
+
+<br />
+<h1>Notes</h1>
+<p>
+  Let's say we want to display a snowman for temp below 50 and sun for temp
+  above 50. we can absolutely subscribe to the tenperature changes and react to
+  them. but we dont necessarilly have to do that to display a new weather icon
+  to the user.
+  <br />
+  Behaviour subjects are a type of observable that allow you to get a current
+  value from a subject.
+  <br />
+  Qualities of behaviour subjects
+</p>
+<ul>
+  <li>
+    The initial value is passed to our subscription when we subscribe to them
+  </li>
+  <li>
+    They work like any subject expect you dont have to subscribe to them to keep
+    track of the latest value (but we can if we want to)
+  </li>
+  <li>
+    If all we care about is what the current temperatire is then behaviour
+    subjects are ideal
+  </li>
+</ul>
+<p><strong>It's normal to add '$' to subject names</strong></p>
+<br /><br /><br /><br />

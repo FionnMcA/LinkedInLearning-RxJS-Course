@@ -1,0 +1,52 @@
+<h1>from, first, last and skipWhile Operators</h1>
+<a href="https://www.learnrxjs.io/learn-rxjs/operators/creation/from">
+  from RxJS Docs</a
+>
+<br />
+<a href="https://www.learnrxjs.io/learn-rxjs/operators/filtering/first">
+  first RxJS Docs</a
+>
+<br />
+<a href="https://www.learnrxjs.io/learn-rxjs/operators/filtering/last">
+  last RxJS Docs</a
+>
+<br />
+<a href="https://www.learnrxjs.io/learn-rxjs/operators/filtering/skipwhile">
+  skipWhile RxJS Docs</a
+>
+<br />
+<br />
+<div>
+  <div>
+    <label>Input Temperature</label>
+    <input type="number" (change)="setInputTemperature($event)" />
+  </div>
+  <br />
+  <div *ngIf="!temperatureDataList.length">
+    <button (click)="setTemperature()">Add Fahrenheit Temperature</button>
+    <button (click)="displayValues()">Display Values</button>
+  </div>
+  <br />
+</div>
+
+<div>
+  <div>
+    <span *ngIf="!temperatureDataList.length">No Values Listed</span>
+    <span *ngIf="temperatureDataList.length">Temperature Values</span>
+    <ul>
+      <li *ngFor="let temp of temperatureDataList">{{ temp }} F</li>
+    </ul>
+  </div>
+</div>
+<br />
+<p>
+  On the top of our weather app. what if we want to know the first sunny day, or
+  the last cold day<br />
+  in this example we used from(). form() can turn an array, promise, or iterable
+  into an observable. <br />
+  if theis is the case we can use the operator's first and last to only trigger
+  our subscription when the first ot last values passed by our dataset meet out
+  criteria<br />
+  to take another further step we could also choose to start omitting days after
+  the first 70 degree day using skipWhile
+</p>

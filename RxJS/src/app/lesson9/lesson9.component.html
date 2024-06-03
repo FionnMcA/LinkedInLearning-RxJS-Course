@@ -1,0 +1,33 @@
+<div>
+  <div>
+    <button (click)="getWeather()">Get Weather</button>
+  </div>
+
+  <div>
+    <div>
+      <span>Click Call Count: {{ attemptedCallCount }}</span>
+    </div>
+    <div>
+      <div>
+        <span>Completed Call Count: {{ callCount }}</span>
+      </div>
+    </div>
+    <div *ngIf="temperatureDataList.length">
+      <span>Replayed Subscription Values</span>
+      <ul>
+        <li *ngFor="let temp of temperatureDataList">{{ temp }} F</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<br />
+<p>
+  When we have our weather app we have a button thats clicked and emits and
+  event to an observable passed to the subscribers. If someone clicks this
+  multiple times it can be costly (performing multiple unneccessary api calls).
+  We need to make sure we're carefull about a user clicking too often<br />
+  A way to do this is to wait until the previous event has been fired before
+  creating a new one. We do this using exhaustMap.<br />
+  <strong>An Exhaust</strong> - An RxJS operator that waits for the previous
+  event to finish before starting a new way
+</p>

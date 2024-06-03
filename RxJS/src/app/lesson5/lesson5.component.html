@@ -1,0 +1,29 @@
+<h1>Filter Operator</h1>
+<h3>
+  Filter items emitted by the source Observable by only emitting those that
+  satisfy a specified predicate.
+</h3>
+<a href="https://rxjs.dev/api/operators/filter"> Filter RxJS docs</a
+><br /><br />
+<h5>Original Weather Data</h5>
+<div *ngFor="let weatherDay of weatherData">
+  day: {{ weatherDay.day }}, Temperature: {{ weatherDay.temperature }}
+</div>
+<br /><br />
+<h5>Beach Days</h5>
+<div *ngFor="let weather of displayWeather">
+  <div>Day: {{ weather.day }}</div>
+  <div>Temperature: {{ weather.temperature }} F</div>
+</div>
+
+<div>
+  <div *ngIf="!displayWeather.length">
+    <button (click)="getWeatherData()">Get Beach Days</button>
+  </div>
+</div>
+
+<p>
+  If we only want to focus on days over 70F we use something called a filter
+  operator, we can choose to filter and allow values (in this case 70 degress)
+  to pass to the subscription function
+</p>

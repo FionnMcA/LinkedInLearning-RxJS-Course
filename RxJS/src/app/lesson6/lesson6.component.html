@@ -1,0 +1,30 @@
+<h1>takeUntil Operator</h1>
+<a href="https://www.learnrxjs.io/learn-rxjs/operators/filtering/takeuntil">
+  takeUntil RxJS docs</a
+>
+<br />
+<div *ngFor="let weather of displayWeather">
+  <h1>Day: {{ weather.day }}</h1>
+
+  <h1>Temperature: {{ weather.temperature }} F</h1>
+</div>
+
+<br />
+<p>
+  When working with subscriptions something we need to mention is that even if
+  the component hosting the observable is destroyed. The subscription can keep
+  reunning and handling new data when it doesnt need to. <br />
+  It's best practice to always unsubscribe from every subscription when we no
+  linger need them.<br />
+  In Lesson 5 the subscription will keep going endlessly inless we unsubscribe
+  from it. So here we will unsubscribe<br />
+  We unsubscribe by using the takeUntil Operator, we also created a
+  destorySubject$ and we use the hook ngOnDestroy. so when we subscribe to our
+  weather subject we will include in the pipe the takeUntil Operator
+  takeUntil(this.destroySubject$) and in ngOnDestroy we will
+  this.destroySubject$.next(); this.destroySubject$.complete(); so when the
+  component is destroyed, destroySubject$ will complete and because our
+  subscription has takeUntil(this.destorySubject$) our subscription will end. so
+  here when I navigate back to the home menu, the console.log will show that the
+  subscription has stopped
+</p>

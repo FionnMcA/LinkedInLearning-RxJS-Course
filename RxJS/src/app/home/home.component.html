@@ -1,0 +1,165 @@
+<a href="assets/CertificateOfCompletion_Learning RxJS.pdf">Certificate</a>
+<h1>Navigate to Lessons</h1>
+
+<h3>Key RxJS Concepts</h3>
+<a routerLink="/lesson1">Lesson 1 (Reading data with behaviour subjects)</a>
+<br />
+<a routerLink="/lesson2">Lesson 2 (Subscribing to changes using subjects)</a>
+<br />
+<a routerLink="/lesson3">Lesson 3 (Replay changes with replay subjects)</a>
+
+<h3>Operate on RxJS Subject</h3>
+<a routerLink="/lesson4">Lesson 4 (Writing operators to transform data)</a>
+<br />
+<a routerLink="/lesson5">Lesson 5 (Filtering data from obeservables)</a>
+<br />
+<a routerLink="/lesson6">Lesson 6 (Taking data and then unsubscribing)</a>
+<br />
+<a routerLink="/lesson7"
+  >Lesson 7 (Starting subscriptions with first, last and skipWhile)</a
+>
+<h3>RxJS with Multiple Observables</h3>
+<a routerLink="/lesson8"
+  >Lesson 8 (Listening to multiple observables with combineLatest)</a
+>
+<br />
+<a routerLink="/lesson9"
+  >Lesson 9 (Preventing repeated calls using exhaustMap)</a
+>
+<br />
+<a routerLink="/lesson10"
+  >Lesson 10 (Switching to the latest request with SwitchMap)</a
+>
+<br />
+<a routerLink="/lesson11"
+  >Lesson 11 (Handling all simultaneous requests using mergeMap)</a
+>
+
+<h1>Notes (overview of RxJS and necessary prior knowledge)</h1>
+<h1>Synchronous Code</h1>
+Most code we start writing is actually synchronous code, meaning it's executed
+sequentially from top to bottom and left to right. Synchronous code is
+deterministic, meaning it will yield the exact same result every time it's run.
+If there are functions being called in the code, each function must be completed
+before the next function can run.
+
+<strong>Benefits:</strong>
+- No surprises - Commonly used - Easy to work with However, synchronous code
+can't be used when we have to wait for something, like an API call or a button
+event. When you're coding, not all information is available immediately. This
+can be when we need an API response, like fetching a list of shopping cart
+items, or a user-driven event, like adding an item to a shopping cart. This type
+of programming is known as asynchronous programming.
+
+<h1>Asynchronous Programming</h1>
+Asynchronous programming is a type of programming where your code can work on
+one thing while still doing other things. This means asynchronous code is
+non-blocking, where we don't have to wait for the program to finish,
+non-deterministic, where results can change every time we run it, and
+parallelizable, where we can do other things at the same time.
+
+<h1>When to Write Asynchronous Code</h1>
+For example, if we added items to a to-do list and wanted to save it to a
+database, it may surprise you to hear that we don't have to always wait for your
+list to be saved if you want to keep adding to it. Users can still add items to
+it and do other things even if they're saving in the background. Synchronous
+code, on the other hand, would require the user to wait for everything to finish
+before they could interact with the page again. For example, in JavaScript, we
+usually use a promise to execute code that isn't resolved immediately. An
+example would be checking out with our shopping cart and paying for our
+purchase. We may want to do other things on the website while waiting for the
+payment to process. Once it's done, an email is sent to the customer with the
+receipt. This entire process doesn't stop the user from using the entire
+website. This all happens asynchronously. While there are many pros to working
+with asynchronous code, like letting tasks run in the background, it's important
+to only use asynchronous programming when you need to. Asynchronous code is
+generally a lot more difficult to follow than synchronous code because it's
+non-deterministic. We may get different results running the same code, and it
+may resolve at different times. With these pros and cons, async programming is a
+tool to help run tasks in the background and should only be used as needed.
+<br /><br />
+
+<h1>Reactive Vs Asynchronous</h1>
+lets say you have a weather app that displays the current temperature.
+Synchronous code cant do this because this involves fettching and displaying
+data which is a background task. By using asynchronous programming, we can call
+an api like get current temperatire and then display it to the user when its
+ready. A dew ways we could implement this is on page load and if a user click a
+button (maybe a button that says get current temp) But what if the API returns
+fahrenheit and we want celcius? If we wanted to convert the temperature API
+response we got from somewhere else, we'd ne usinga technique called reactive
+programming.
+
+<br />Reactive Programming<br />
+is programming with asynchronous data streams, meaning programming with data
+that's consistently streamed and needs to be handled. This data is not available
+all at once and is handled as the program receives it. <br /><br />
+This is different from asynchronous programming <br />
+where the strategy is only concerned with whether a piece of code is executed
+and resolved now or later. So in the example of the weather app, new temperature
+values can be streamed to our app, and reactive programming will react to those
+new values and can transform them into Celsius, Kelvin, etc.
+<br />
+<strong
+  >It's important to remember that reactive programming is a subcategory of
+  asynchronous coding. All reactive coding is asynchronous, but not all
+  asynchronous coding is reactive. For example, an email can be sent
+  asynchronously, but a stream of data is required to apply changes, like
+  temperatures for our weather app.</strong
+>
+
+<h1>Observer - Subscriber Pattern for RxJS</h1>
+If we want to convert weather temperatures to a different format as we receive
+new data points, how would we do that?
+
+<br />
+To solve this, we will use something called the Observer-Subscriber pattern. If
+we look at the weather app as an example, we would have an observer monitoring
+the weather temperatures and something else paying attention to the events on
+that observer.
+<strong
+  >It's important to note there are two roles here: the observer, who just
+  listens to data change events, and the subscriber, who actually does things
+  and reacts to those data change events.</strong
+>
+<br />
+These events could be as simple as a new temperature data point being received
+or related to errors, such as the next temperature data point having an error
+and not returning a response. These are events that are happening on the
+observer, the object that pays attention to the weather temperatures.
+<br />
+The listener that cares about these events is the subscriber. The subscriber is
+the one that actually does the work of reacting to the events. These are the
+objects that do the heavy lifting of converting weather temperatures to
+different formats. An observer may have one or many subscribers, and each
+subscriber can react differently to an observer's data change event. One
+subscriber may convert the data to Celsius, another may convert it to Kelvin,
+and another can display a weather icon that shows a sun for hot weather or a
+snowman for cold weather. This pattern is the entire foundation for RxJS. In
+fact, RxJS was designed as a framework for this pattern.
+<br /><br />
+<h1>Essential Conecpets</h1>
+<ul>
+  <li>
+    <strong>Observable:</strong> represents the idea of an invokable collection
+    of future values or events
+  </li>
+  <li>
+    <strong>Observer:</strong> is a collection of callbacks that knows how to
+    listen to values delivered by an observable
+  </li>
+  <li>
+    <strong>Subscription:</strong> represents the execution of an observable,
+    its primarly useful for cancelling the execution
+  </li>
+  <li>
+    <strong>Operators:</strong> are pure functions that enable a functional
+    programming style of dealing with collections with operations like: map,
+    filter, concat, reduce, etc
+  </li>
+  <li>
+    <strong>Subject:</strong> is equivalent to an EventEmitter, and the only way
+    to multicast a value or event to multiple Observers.
+  </li>
+</ul>
+<br /><br /><br /><br />

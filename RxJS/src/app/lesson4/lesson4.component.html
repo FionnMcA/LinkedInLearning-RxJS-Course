@@ -1,0 +1,59 @@
+<h1>Operators</h1>
+<h4>
+  RxJS is mostly useful for its operators, even though the Observable is the
+  foundation. Operators are the essential pieces that allow complex asynchronous
+  code to be easily composed in a declarative manner.
+</h4>
+<a href="https://rxjs.dev/guide/operators">Operators RxJS docs</a>
+<br /><br />
+<div>
+  <div>
+    <div>
+      <label>Select Day:</label>
+      <select [(ngModel)]="selectedDay">
+        <option *ngFor="let day of weekdays" [value]="day">
+          {{ day }}
+        </option>
+      </select>
+    </div>
+    <br />
+    <div>
+      <label>Input Temperature:</label>
+      <input type="number" (change)="setInputTemperature($event)" />
+    </div>
+    <br />
+    <button (click)="setTemperature()">Add Fahrenheit Temperature</button>
+  </div>
+  <br />
+  <div>
+    <div>Temperature: {{ weatherOutput?.temperature }}</div>
+    <div>Day: {{ weatherOutput?.day }}</div>
+  </div>
+</div>
+<br /><br />
+<p>
+  So so far we had only been able to transform data once something subscribes to
+  an observable and data is passd to it. But sometimes we want to transform the
+  data before a subscription gets to it and after an observable gets it <br />
+  So in this example we round down the temperature to the nearest whole
+  number<br />
+  Operators in RxJS are mainly ised to transform data paths to an observable.
+  The changes data will eventually reach the subscription function
+</p>
+<ul>
+  <li>Only transforming data? Use an operator</li>
+  <li>
+    Finished and need to interact with the component? write it in the
+    subscription
+  </li>
+</ul>
+
+<p>
+  In this example we used <strong>pipe</strong> and <strong>map</strong><br />SO
+  what do these do?<br />
+  <strong>Pipe:</strong> is used to combine multiple operators into a single
+  operation chain<br />
+  <strong>Map:</strong> Here the map operator is transforming the weather object
+  emitted by the weatherSubject$. Specifically it rounds up the temperature and
+  returns a new weather object with the transformed temperature and original day
+</p>

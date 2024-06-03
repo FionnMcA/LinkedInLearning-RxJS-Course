@@ -1,0 +1,44 @@
+<h1>Replay Subject: "Replays" or emits old values to new subscribers</h1>
+<a href="https://www.learnrxjs.io/learn-rxjs/subjects/replaysubject"
+  >ReplaySubject RxJS docs</a
+>
+<label>Input Temperature </label>
+<input type="number" (change)="setInputTemperature($event)" />
+
+<button (click)="setTemperature()">Add fahrenheit Temperature</button>
+<button (click)="addSubscription()">Add new Subscription</button>
+<button (click)="removeSubscription()">Remove Subscription</button>
+<br /><br />
+<span *ngIf="!temperatureDataList.length">No values Listed</span>
+<span *ngIf="temperatureDataList.length">Replayed Subscription Values</span>
+<li *ngFor="let temp of temperatureDataList">{{ temp }} F</li>
+
+<br />
+<br />
+<p>
+  What if we wanted to convert all previous values as well. we can do this with
+  a special type of observable called a replay subject. <br /><br />
+  Replay subjects remember every value thats been passed to it and we'll pass
+  all of them to new subscriptions in the same order.<br /><br />
+  Say if we have F values of 21,37,42,69,73 abd we pass them into a replay
+  subject, a current subscription will receive these values <br />
+  Newer subscriptions that join later will immedisately be passed the same
+  values
+</p>
+<table>
+  <tr>
+    <td>Behaviour subject:</td>
+    <td>has an inital value and can acess the current value anytime</td>
+  </tr>
+  <tr>
+    <td>Subject:</td>
+    <td>Doesnt have an intial value and passes new data as it recieves it</td>
+  </tr>
+  <tr>
+    <td>Replay Subject:</td>
+    <td>
+      Remembers data passed into it and passes all of that data to new
+      subscribers
+    </td>
+  </tr>
+</table>

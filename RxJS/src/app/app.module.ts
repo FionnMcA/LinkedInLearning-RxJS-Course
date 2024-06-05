@@ -19,6 +19,7 @@ import { Lesson9Component } from './lesson9/lesson9.component';
 import { Lesson10Component } from './lesson10/lesson10.component';
 import { Lesson11Component } from './lesson11/lesson11.component';
 import { EncryptionComponent } from './encryption/encryption.component';
+import { VigenereCipherComponent } from './vigenere-cipher/vigenere-cipher.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { EncryptionComponent } from './encryption/encryption.component';
     Lesson10Component,
     Lesson11Component,
     EncryptionComponent,
+    VigenereCipherComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [provideAnimationsAsync()],

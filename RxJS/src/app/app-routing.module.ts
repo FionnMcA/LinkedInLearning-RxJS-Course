@@ -13,6 +13,7 @@ import { Lesson9Component } from './lesson9/lesson9.component';
 import { Lesson10Component } from './lesson10/lesson10.component';
 import { Lesson11Component } from './lesson11/lesson11.component';
 import { EncryptionComponent } from './encryption/encryption.component';
+import { VigenereCipherComponent } from './vigenere-cipher/vigenere-cipher.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'lesson10', component: Lesson10Component },
   { path: 'lesson11', component: Lesson11Component },
   { path: 'encryption', component: EncryptionComponent },
+  { path: 'encryption2', component: VigenereCipherComponent },
 ];
 
 @NgModule({

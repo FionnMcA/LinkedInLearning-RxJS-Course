@@ -18,6 +18,7 @@ import { Lesson8Component } from './lesson8/lesson8.component';
 import { Lesson9Component } from './lesson9/lesson9.component';
 import { Lesson10Component } from './lesson10/lesson10.component';
 import { Lesson11Component } from './lesson11/lesson11.component';
+import { EncryptionComponent } from './encryption/encryption.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { Lesson11Component } from './lesson11/lesson11.component';
     Lesson9Component,
     Lesson10Component,
     Lesson11Component,
+    EncryptionComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [provideAnimationsAsync()],

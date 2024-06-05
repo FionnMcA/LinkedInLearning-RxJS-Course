@@ -1,0 +1,27 @@
+<div>
+  <input
+    type="text"
+    (change)="inputPlaintext($event)"
+    placeholder="Enter plain text"
+  />
+  <input
+    type="number"
+    (change)="inputNumber($event)"
+    placeholder="Enter number"
+  />
+  <p>Enciphered Text: {{ encipheredText }}</p>
+</div>
+<div>
+  <input
+    type="text"
+    (change)="inputEncryptedText($event)"
+    placeholder="Enter plain text"
+  />
+  <input
+    type="number"
+    (change)="inputDecryptNumber($event)"
+    placeholder="Enter number"
+  />
+
+  <p>decipheredText Text: {{ decipheredText }}</p>
+</div>

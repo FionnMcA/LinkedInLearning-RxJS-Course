@@ -12,6 +12,7 @@ import { Lesson8Component } from './lesson8/lesson8.component';
 import { Lesson9Component } from './lesson9/lesson9.component';
 import { Lesson10Component } from './lesson10/lesson10.component';
 import { Lesson11Component } from './lesson11/lesson11.component';
+import { EncryptionComponent } from './encryption/encryption.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'lesson9', component: Lesson9Component },
   { path: 'lesson10', component: Lesson10Component },
   { path: 'lesson11', component: Lesson11Component },
+  { path: 'encryption', component: EncryptionComponent },
 ];
 
 @NgModule({

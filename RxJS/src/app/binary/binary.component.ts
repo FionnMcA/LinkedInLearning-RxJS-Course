@@ -23,7 +23,15 @@ export class BinaryComponent implements OnInit {
 
   ngOnInit() {
     this.convertSubject$.subscribe((conversion) => {
-      this.displayNumber = this.decimalToBinary(conversion.original);
+      switch (conversion.convertTo) {
+        case 'Binary':
+          this.displayNumber = this.decimalToBinary(conversion.original);
+          break;
+        case 'Octal':
+          this.displayNumber = this.decimalToOctal(conversion.original);
+        case 'Hexadecimal':
+          this.displayNumber = this.decimalToHex(conversion.original);
+      }
       console.log(
         `convertTo: ${conversion.convertTo}, original number: ${conversion.original}`
       );
@@ -54,5 +62,13 @@ export class BinaryComponent implements OnInit {
     }
 
     return binary;
+  }
+
+  decimalToOctal(decimal: number): string {
+    return decimal.toString(8);
+  }
+
+  decimalToHex(decimal: number): string {
+    return decimal.toString(16);
   }
 }

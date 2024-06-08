@@ -1,0 +1,15 @@
+<br />
+<label for="numberSystem">Convert Decimal To: </label>
+
+<select [(ngModel)]="selectedBase">
+  <option *ngFor="let base of bases" [value]="base">
+    {{ base }}
+  </option>
+</select>
+<br /><br />
+<label>Input number you want to convert </label>
+<input (change)="enteredNumber($event)" />
+<br /><br />
+<button (click)="convert()">Convert</button>
+
+{{ displayNumber }}

@@ -29,8 +29,10 @@ export class BinaryComponent implements OnInit {
           break;
         case 'Octal':
           this.displayNumber = this.decimalToOctal(conversion.original);
+          break;
         case 'Hexadecimal':
           this.displayNumber = this.decimalToHex(conversion.original);
+          break;
       }
       console.log(
         `convertTo: ${conversion.convertTo}, original number: ${conversion.original}`
@@ -65,10 +67,33 @@ export class BinaryComponent implements OnInit {
   }
 
   decimalToOctal(decimal: number): string {
-    return decimal.toString(8);
+    if (decimal === 0) {
+      return '0';
+    }
+
+    let octal = '';
+    while (decimal > 0) {
+      octal = (decimal % 8).toString() + octal;
+      decimal = Math.floor(decimal / 8);
+    }
+
+    return octal;
   }
 
   decimalToHex(decimal: number): string {
-    return decimal.toString(16);
+    if (decimal === 0) {
+      return '0';
+    }
+
+    const hexDigits = '0123456789ABCDEF';
+    let hex = '';
+
+    while (decimal > 0) {
+      const remainder = decimal % 16;
+      hex = hexDigits[remainder] + hex;
+      decimal = Math.floor(decimal / 16);
+    }
+
+    return hex;
   }
 }
